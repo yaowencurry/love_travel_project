@@ -110,7 +110,7 @@ class AgentService:
     def _apply_decision(self, session: AgentSession, decision: ModelDecision) -> None:
         session.stage = decision.stage
         if decision.extracted_request:
-            session.trip_request = TripRequest.model_validate(decision.extracted_request)
+            session.trip_request = decision.extracted_request
         session.messages.append(ChatMessage(role="assistant", content=decision.message))
         snapshot = self._snapshot_from_decision(session, decision)
         session.snapshots.append(snapshot)
@@ -215,10 +215,7 @@ class AgentService:
         decision: ModelDecision | None = None,
     ) -> TripRequest | None:
         if decision and decision.extracted_request:
-            try:
-                return TripRequest.model_validate(decision.extracted_request)
-            except Exception:
-                return None
+            return decision.extracted_request
         return session.trip_request
 
     def _quote_payload(self, request: TripRequest) -> dict:

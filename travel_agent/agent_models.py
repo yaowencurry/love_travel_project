@@ -79,7 +79,7 @@ class ModelDecision(BaseModel):
     stage: AgentStage
     message: str
     summary: str
-    extracted_request: dict | None = None
+    extracted_request: TripRequest | None = None
     itinerary: list[dict] = Field(default_factory=list)
     selected_quote_ids: list[str] = Field(default_factory=list)
     decision_required: bool = True
