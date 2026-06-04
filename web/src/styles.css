@@ -1,0 +1,128 @@
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #f4f6fb;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #f4f6fb;
+}
+
+.main-panel {
+  padding: 28px;
+  min-width: 0;
+}
+
+.side-panel {
+  padding: 28px 24px 28px 0;
+  background: transparent;
+  overflow: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.side-stack,
+.composer {
+  width: 100%;
+}
+
+.topbar {
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  display: block;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.chat-card {
+  min-height: calc(100vh - 128px);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-card .ant-card-body {
+  display: flex;
+  min-height: calc(100vh - 176px);
+  flex-direction: column;
+}
+
+.message-list {
+  flex: 1;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.message-row {
+  border-block-end: 0 !important;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.assistant {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: min(760px, 82%);
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.message-row.user .message-bubble {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.message-bubble .ant-typography {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+}
+
+.meta-line,
+.event-line {
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .app-shell {
+    display: block;
+  }
+
+  .main-panel {
+    padding: 18px;
+  }
+
+  .side-panel {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto;
+    position: static;
+    padding: 0 18px 18px;
+  }
+
+  .chat-card,
+  .chat-card .ant-card-body {
+    min-height: 560px;
+  }
+}
+
